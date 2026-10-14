@@ -27,7 +27,7 @@ export const editarController = async (req, res) =>{
             return res.status(400).json({message: 'Erro ao editar conteudo.'})
         }
 
-        const resultado = await editarService(id, conteudo);
+        const resultado = await editarService(conteudo, id);
         return res.status(200).json({message: 'Conteudo editado com sucesso.'});
     } catch(err){
         return res.status(500).json({message: 'Erro ao editar conteudo.'})
@@ -52,7 +52,7 @@ export const deletarController = async (req, res) =>{
 
 export const feedController = async (req, res) =>{
     try{
-        const resultado = await feedService(postagens);
+        const resultado = await feedService();
         return res.status(200).json(resultado);
     } catch(err){
         return res.status(500).json({message: 'Erro ao carregar feed.'});
@@ -61,9 +61,10 @@ export const feedController = async (req, res) =>{
 
 export const toggleController = async (req, res) => {
     try {
-        const postId = req.params.id;
+        const post_id = req.params.id;
+        const usuario_id = 1; // ID fixo de teste enquanto não temos autenticação
         
-        const resultado = await toggleService(postId); 
+        const resultado = await toggleService(post_id, usuario_id); 
 
         return res.status(200).json({ 
             message: resultado.curtido ? "Curtida adicionada" : "Curtida removida", 
