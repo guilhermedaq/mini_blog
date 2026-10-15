@@ -15,7 +15,7 @@ router.delete('/:id', deletarController); // deleta comentario
 
 //ações gerais
 router.get('/', feedController); // ver feed geral
-router.post('/:id/toggle-like', toggleController); // curtir comentários e criar +1 e na lógica/front end poder remover a curtida?
+router.post('/:id/toggle_like', toggleController); // curtir comentários e criar +1 e na lógica/front end poder remover a curtida?
 
 
 export default router;

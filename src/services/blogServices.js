@@ -37,6 +37,7 @@ export const toggleService = async (post_id, usuario_id)=>{
     const contagem = await pool.query('SELECT COUNT(*) FROM likes WHERE post_id = $1', [post_id]);
 
     return {
-        curtido: statusCurtida
+        curtido: statusCurtida,
+        total: contagem
     }
 }

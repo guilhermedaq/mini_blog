@@ -1,4 +1,9 @@
-
+import { postarService,
+         editarService,
+         deletarService,
+         feedService,
+         toggleService
+ } from "../services/blogServices.js";
 
 
 
